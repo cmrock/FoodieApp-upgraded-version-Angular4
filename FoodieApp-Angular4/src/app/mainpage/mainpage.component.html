@@ -1,0 +1,30 @@
+{{recipes}}
+<div *ngFor="let recipe of recipes">
+    Recipe Name : {{recipe.name}}
+</div>
+<!-- 
+<div class="col-lg-9 col-md-9 visible-lg visible-md visible-sm visible-xs">
+  <div class="rowsdf">
+    <section id="results" style="clear:both">
+      <div class="grip visible-lg visible-md">
+        <span class="glyphicon glyphicon-resize-horizontal logo_green"
+              title='Hide/Show Ingredients'></span>
+      </div>
+
+      <div class="result" *ngFor="let recipe of recipes">
+        <div class="row-fluid DIV_3">
+          <a href="{{recipe.url}}" target="_blank"><img src="{{recipe.image}}" class="IMG_5"/> </a>
+          <div class="DIV_6">
+            <span class="title" [innerHtml]="recipe.name">{{recipe.name}}</span>
+          </div>
+        </div>
+        <i style="font-size:27px;color:#ef7a5a;" title="save recipe"
+           ng-click="toggle_save(recipe.name,recipe.image,recipe.url)"></i>
+        <div class="youcanmake">
+          <img src="images/thumb.png">You can make this !<br>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+-->

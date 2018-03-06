@@ -1,0 +1,16 @@
+<div class="navbar navbar-fixed-top navbar-default" role="navigation">
+    <div class="container" style="margin-left: initial ">
+        <div class="navbar-header">
+            <a href="/"><img class="logoimage" src="assets/images/imageedit_1_4109745118.gif" alt="Logo"></a>
+        </div>
+
+        <div id="slidemenu">
+            <form class="navbar-form navbar-right" #search="ngForm" (ngSubmit)="searchRecipeName(search.value)">
+                <div class="form-group" style="display: inline-flex">
+                    <input type="text" name="textSearch" placeholder="find recipes by name" ngModel>
+                    <button type="submit" class='btn'><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
