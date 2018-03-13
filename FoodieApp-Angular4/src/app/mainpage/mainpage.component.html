@@ -1,0 +1,45 @@
+<app-header [result]="data" (clicked)="searchRecipeName($event)"></app-header>
+<div class="row main" id="page-content">
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs ingredients_column">
+        <div class="panel panel-primary" id="kitchen_panel">
+            <div class="panel-heading">
+                <h4 style="display:inline-block;margin:0;padding:0;font-size: 15px;"><i class="fa fa-cutlery"></i>My Ingredients</h4>
+                <a  href="#" data-toggle="modal" data-target="#exclusion_modal"><i title="My dietary restrictions"  class="fa fa-ban fa-2 pull-right exclusionicon"></i></a>
+            </div>
+            <div class="panel-body">
+                <div id="kitchen">
+                    <div class="kitchen_add">
+                        <section class="searchField">
+                            <form autocomplete="off">
+                                <input id="new_ing" type="text" placeholder="Add Ingredients" class="form-control" style="width:100%;">
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="visible-lg visible-md visible-sm visible-xs">
+  <div class="rowasd">
+    <section id="results" style="clear:both">
+		<div class="grip">
+			<span class="fa fa-arrows-h logo_green" title='Hide/Show Ingredients'></span>
+		</div>
+		
+		<div class="result" *ngFor="let recipe of allRecipes">
+			<div class="row-fluid DIV_2">
+				<a href="{{recipe.url}}" target="_blank"><img src="{{recipe.image}}" class="IMG_5"/> </a>
+				<div class="DIV_6">
+					<span class="title" [innerHtml]="recipe.name">{{recipe.name}}</span>
+				</div>
+				<i style="font-size:27px;color:#ef7a5a;" title="save recipe" ng-click="toggle_save(recipe.name,recipe.image,recipe.url)"></i>
+				<div class="youcanmake">
+					<img src="assets/images/thumb.png">You can make this !<br>
+				</div>
+			</div>
+			
+		</div>
+    </section>
+  </div>
+</div>

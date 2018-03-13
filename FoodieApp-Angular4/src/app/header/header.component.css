@@ -1,0 +1,13 @@
+
+.logoimage{
+  margin-top : 5px;
+  margin-left: 30px;
+  height: 50px;
+  width:175px;
+
+}
+.navbar{
+  border-bottom: 1px solid #d1d4d7;
+  box-shadow: 0 0 5px rgba(0,0,0,.1);
+  border-radius: 0;
+}
