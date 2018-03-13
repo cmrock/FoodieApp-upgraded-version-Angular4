@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {HeaderComponent} from "../header/header.component";
+import { Recipe } from './recipe';
+import {Http, Response} from '@angular/http';
 
 @Component({
   selector: 'app-mainpage',
@@ -8,12 +9,15 @@ import {HeaderComponent} from "../header/header.component";
 })
 export class MainpageComponent implements OnInit {
 
-  mainpage = 'main content';
-  @Input() recipes :HeaderComponent;
-  constructor() { }
+  allRecipes:Recipe[]=[];
+  constructor(private http: Http) {}
 
-  ngOnInit() {
-	console.log("Main");
-	console.log(this.recipes);
+  ngOnInit() {}
+  searchRecipeName(data:string){
+    this.http.get("http://localhost:3000/searchByRecipeName/"+ data).
+    map((response) => response.json()).
+    subscribe((data) => {
+      this.allRecipes = data.data;
+    });
   }
 }

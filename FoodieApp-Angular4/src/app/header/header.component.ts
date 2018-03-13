@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -9,18 +8,13 @@ import 'rxjs/add/operator/map';
 })
 export class HeaderComponent implements OnInit {
 
-	recipes = [];
-    constructor( private http: Http) {}
-	  ngOnInit() {}
+  @Input() result:string = "";
+  @Output() clicked = new EventEmitter<string>();
+	constructor() {}
 
-    searchRecipeName(data) {
-        console.log(data.textSearch);
-        this.http.get("http://localhost:3000/searchByRecipeName/"+ data.textSearch).
-        map((response) => response.json()).
-        subscribe((data) => {
-          this.recipes = data.data;
-		  console.log("Hello");
-		  console.log(this.recipes);
-        });
-    }
+	ngOnInit() {}
+
+  searchRecipeName(searchTerm:string){
+	  this.clicked.emit(searchTerm);
+  }
 }
