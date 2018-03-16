@@ -10,6 +10,7 @@ import {Http, Response} from '@angular/http';
 export class MainpageComponent implements OnInit {
 
   allRecipes:Recipe[]=[];
+  kitchen = [];
   constructor(private http: Http) {}
 
   ngOnInit() {}
@@ -19,5 +20,25 @@ export class MainpageComponent implements OnInit {
     subscribe((data) => {
       this.allRecipes = data.data;
     });
+  }
+  searchByIngredients(data){
+	  if(this.kitchen.indexOf(data.new_ing) > -1){
+		  alert("already exist in kitchen!");
+	  }else{
+		 this.kitchen.push(data.new_ing);
+		 this.http.get("http://localhost:3000/searchByIngredients/"+ this.kitchen).
+			map((response) => response.json()).
+			subscribe((data) => {
+			  this.allRecipes = data.data;
+			});
+	  }
+  }
+  removeIngredient(data){
+	  let ind = this.kitchen.indexOf(data);
+	  this.kitchen.splice(ind,1);
+  }
+  remove_all_ingredients(){
+	  this.kitchen = [];
+	  this.allRecipes = [];
   }
 }
