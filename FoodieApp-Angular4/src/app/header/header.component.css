@@ -7,7 +7,13 @@
 
 }
 .navbar{
-  border-bottom: 1px solid #d1d4d7;
-  box-shadow: 0 0 5px rgba(0,0,0,.1);
-  border-radius: 0;
+    display: flex;
+    border-bottom: 1px solid #d1d4d7;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    border-radius: 0;
+}
+@media screen and (max-width: 700px) {
+    .navbar {   
+        flex-direction: column;
+    }
 }
