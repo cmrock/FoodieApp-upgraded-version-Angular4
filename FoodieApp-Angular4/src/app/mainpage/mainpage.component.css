@@ -3,22 +3,14 @@
     flex-wrap: wrap;
 }
 
-.side {
+.kitchen {
     flex: 30%;
     padding: 20px;
 }
-
 .main {
     flex: 70%;
     background-color: white;
     padding: 20px;
-}
-.logoimage{
-  margin-top : 5px;
-  margin-left: 30px;
-  height: 50px;
-  width:175px;
-
 }
 .ingredients_column{
     padding-bottom: 25px;
@@ -32,6 +24,15 @@
     margin-top: 5px;
     margin-bottom:50px;
 }
+
+.logoimage{
+  margin-top : 5px;
+  margin-left: 30px;
+  height: 50px;
+  width:175px;
+
+}
+
 .panel {
     box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
     background-color: #fff;
@@ -85,7 +86,7 @@
 .result p{
     margin-left: 55px;
 }
-.DIV_2 {
+.recipe_div {
     box-sizing: border-box;
     color: rgb(52, 54, 56);
     display: inline-block;
@@ -100,7 +101,7 @@
     font: normal normal 200 15px/20px Helvetica, Arial, sans-serif;
     outline: rgb(52, 54, 56) none 0px;
 }
-.IMG_5 {
+.recipe_img {
     color: rgb(25, 137, 255);
     height: 239px;
     max-width: 100%;
@@ -114,7 +115,7 @@
     font: normal normal bold 15px/20px Helvetica, Arial, sans-serif;
     outline: rgb(25, 137, 255) none 0px;
 }
-.DIV_6 {
+.recipe_name {
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     cursor: pointer;
@@ -170,12 +171,18 @@
     color: #ed4b0b;
 }
 .exclusionicon{
-    margin-right:3px;
     color:red;
     font-size: 19px;
 }
+.slider{
+    text-align: center;
+    width:640px;
+    height:386px;
+    border: 1px solid #000000;
+    margin: 30px 10%;
 
-@media screen and (max-width: 700px) {
+}
+@media screen and (max-width: 750px) {
     .row {   
         flex-direction: column;
     }

@@ -11,6 +11,7 @@ export class MainpageComponent implements OnInit {
 
   allRecipes:Recipe[]=[];
   kitchen = [];
+  
   constructor(private http: Http) {}
 
   ngOnInit() {}
@@ -36,6 +37,9 @@ export class MainpageComponent implements OnInit {
   removeIngredient(data){
 	  let ind = this.kitchen.indexOf(data);
 	  this.kitchen.splice(ind,1);
+    if(this.kitchen.length===0){
+      this.allRecipes = [];
+    }
   }
   remove_all_ingredients(){
 	  this.kitchen = [];
