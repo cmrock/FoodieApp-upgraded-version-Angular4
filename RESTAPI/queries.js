@@ -8,12 +8,14 @@ var pgp = require('pg-promise')(options);
 var connectionString = 'postgres://localhost:5432/recipes';
 var db = pgp(connectionString);
 
-// add query functions
+/*
+* API function for search recipe by ingredients (searchByIngredients)
+*/ 
 function searchByIngredients(req, res, next){
     var recipeIngredients = req.params.ingredients;
-    var recipe = recipeIngredients.replace(',','|');
+    var recipe = recipeIngredients.replace(/,/gi,'&');
     // db.any("SELECT * FROM recipecollection WHERE ingredients LIKE ALL (ARRAY['"+recipeIngredients.split(',')+"'])").then(function(data){
-    db.any("SELECT * FROM recipecollection WHERE ingredients ~*'"+ recipe+"'").then(function(data){
+    db.any("SELECT * FROM recipecollection WHERE ingredients @@to_tsquery ('"+ recipe+"')").then(function(data){
         res.status(200)
             .json({
                 staus: 'success',
@@ -25,18 +27,21 @@ function searchByIngredients(req, res, next){
             return next(err)
         });
 }
+/*
+* API function for search recipe by ingredients with exclusion of ingredients (searchWithExclusion)
+*/
 function searchWithExclusion(req, res, next){
     var recipeIng = req.params.ingredients;
     var recipeExclusion = req.params.exclusions;
-    var recIng = recipeIng.replace(',','|');
-    var recExc = recipeExclusion.replace(',','|');
+    var recIng = recipeIng.replace(/,/gi,'&');
+    var recExc = recipeExclusion.replace(/,/gi,'&');
     console.log("Here!!", recIng, recExc);
-    db.any("SELECT * FROM recipecollection WHERE ingredients ~* '"+recIng+"' EXCEPT SELECT * FROM recipecollection WHERE ingredients ~* '"+ recExc+ "'").then(function(data){
+    db.any("SELECT * FROM recipecollection WHERE ingredients @@to_tsquery('"+recIng+"') EXCEPT SELECT * FROM recipecollection WHERE ingredients @@to_tsquery('"+recExc+"')").then(function(data){
         res.status(200)
             .json({
                 staus: 'success',
                 data: data,
-                message: 'retrieved all rows with specific recipe name'
+                message: 'retrieved all rows with specific ingredients and excluded ingredients'
             });
     })
         .catch(function(err){
@@ -45,7 +50,6 @@ function searchWithExclusion(req, res, next){
 }
 function searchByRecipeName(req, res, next){
     var recipeName = req.params.name;
-    console.log("Here!!", recipeName);
     db.any("SELECT * FROM recipecollection WHERE name ~* '"+recipeName+"'").then(function(data){
         res.status(200)
             .json({

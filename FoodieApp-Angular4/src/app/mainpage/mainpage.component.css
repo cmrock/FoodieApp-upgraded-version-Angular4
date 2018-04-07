@@ -173,6 +173,18 @@
 .exclusionicon{
     color:red;
     font-size: 19px;
+    cursor: pointer;
+}
+.modal-header{
+    background-color: #047918;
+    color: #FFFFFF;
+}
+#exclusion_modal .modal-header button{
+    color:#F47D10;
+    opacity:1;
+}
+#exclusions_single {
+    overflow-y: auto;
 }
 .slider{
     text-align: center;

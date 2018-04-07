@@ -9,6 +9,9 @@ myApp.controller('mainController', function($scope, $http){
     $scope.text2 = 'Peeler';
     $scope.text3 = 'Macaroni';
     $scope.text4 = 'Pitted';
+    /*
+    *Following functions are just for the testing of APIs
+    */
 
     $scope.calling = function(){
         $scope.formData.push($scope.text1);
