@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 
+import { RecipesService } from './recipes.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     FormsModule,
     SlideshowModule
   ],
-  providers: [],
+  providers: [RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
