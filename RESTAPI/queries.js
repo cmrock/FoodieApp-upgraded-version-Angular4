@@ -20,7 +20,7 @@ function searchByIngredients(req, res, next){
             .json({
                 staus: 'success',
                 data: data,
-                message: 'retrieved all rows with specific ingredients'
+                message: 'retrieved all recipes with specific ingredients'
             });
         })
         .catch(function(err){
@@ -41,7 +41,7 @@ function searchWithExclusion(req, res, next){
             .json({
                 staus: 'success',
                 data: data,
-                message: 'retrieved all rows with specific ingredients and excluded ingredients'
+                message: 'retrieved all recipes with specific ingredients and excluded ingredients'
             });
     })
         .catch(function(err){
@@ -55,7 +55,7 @@ function searchByRecipeName(req, res, next){
             .json({
                 staus: 'success',
                 data: data,
-                message: 'retrieved all rows with specific recipe name'
+                message: 'retrieved recipe with specific name'
             });
     })
     .catch(function(err){
