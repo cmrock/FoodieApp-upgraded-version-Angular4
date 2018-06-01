@@ -3,13 +3,9 @@
 
 Development is under progress......
 
-## Done Functionalities:
+## Functionalities:
 * Responsive web application
 * Recipe search by recipeName
 * Recipe Search by ingredients
 * Recipe Search by ingredients with exclusion of ingredients
 
-## Undone Functionalities:
-* Authorization
-* Save Recipes into an account
-* Delete Recipes from an account

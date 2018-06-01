@@ -65,8 +65,5 @@ function searchByRecipeName(req, res, next){
 module.exports = {
     searchByIngredients: searchByIngredients,
     searchWithExclusion: searchWithExclusion,
-    searchByRecipeName: searchByRecipeName,
-    // addFav: addFav,
-    // getAllFav: getAllFav,
-    // delFav: delFav
+    searchByRecipeName: searchByRecipeName
 };

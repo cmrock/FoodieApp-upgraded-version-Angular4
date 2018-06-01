@@ -17,9 +17,6 @@ var db = require('../queries');
 router.get('/searchByIngredients/:ingredients', cors(corsOptions), db.searchByIngredients);
 router.get('/searchWithExclusion/:ingredients/:exclusions', cors(corsOptions), db.searchWithExclusion);
 router.get('/searchByRecipeName/:name/', cors(corsOptions), db.searchByRecipeName);
-// router.post('/addFav/:email/:recipe_name/:image/:url', db.addFav);
-// router.get('/getAllFav/:email', db.getAllFav);
-// router.put('/delFav/:email/:recipe_name', db.delFav);
 
 
 module.exports = router;
